@@ -63,6 +63,21 @@ var todoList = {
   }
 };
 
+var handlers = {
+  displayTodos: function() {
+    todoList.toggleAll();
+  },
+  toggleAll: function() {
+    todoList.toggleAll();
+  }
+};
+
+
+
+
+
+
+
 
 
 
