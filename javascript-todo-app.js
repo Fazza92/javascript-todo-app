@@ -91,7 +91,18 @@ var handlers = {
   },
   toggleAll: function() {
     todoList.toggleAll();
-  },
+  }
+};
+
+var view = {
+  displayTodos: function() {
+    var todoUl = document.querySelector('ul');
+    todosUl.innerHTML = '';  
+    for (var i = 0 i < todoList.todos.length; i++) {
+      var todoLi = document.createElement('li');
+      todosUl.appendChild(todoLi);
+    }
+  }
 };
 
 
