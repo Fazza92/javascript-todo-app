@@ -120,6 +120,12 @@ var view = {
   }
 };
 
+var todosUL = documnet.querySelector('ul');
+
+todosUL.addEventListener('click', function(event) {
+  console.log(event);
+});
+
 
 
 
