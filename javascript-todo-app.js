@@ -72,9 +72,8 @@ var handlers = {
     changeTodoTextInput.value = '';
     view.displayTodos();
   },
-  deleteTodo: function() {
-    var deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
-    todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
+  deleteTodo: function(position) {
+    todoList.deleteTodo(position);
     deleteTodoPositionInput.value = '';
     view.displayTodos();
   },
@@ -113,18 +112,27 @@ var view = {
     }
   },
   createDeleteButton: function() {
-    var deleteButton = documnet.createElement('button');
+    var deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
     deleteButton.className = 'deleteButton';
     return deleteButton;
+  },
+  setUpEventListeners: function() {
+    var todosUL = document.querySelector('ul');
+
+    todosUL.addEventListener('click', function(event) {
+
+       var elementClicked = event.target;
+
+       if (elementClicked.className === 'deleteButton') {
+        handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
+       }
+    });
   }
 };
 
-var todosUL = documnet.querySelector('ul');
+view.setUpEventListeners();
 
-todosUL.addEventListener('click', function(event) {
-  console.log(event);
-});
 
 
 
